@@ -113,66 +113,127 @@ const DATA = [
     }
 ];
 
+let questionNumber = 1;
+let userScore = 0;
+
+// change question number
+function changeQuestionNumber() {
+    questionNumber++;
+}
+
+// calculate score so far
+function updateScore() {
+    userScore++;
+}
+
 // render quiz - question template
 function startButton() {
-    $('.quiz-window').on('click', 'button', function() {
+    $('.quiz-window').on('click', '.start-quiz', function() {
         event.preventDefault();
-        renderQuestion();
+        renderNextQuestion();
     });
 }
 
 function renderQuestion() {
     return `
-    <form method="post" id="quiz-question-page" class="quiz-window col-8">
-            <div class="progress">
-                <span class="quiz-progress">Question 0 / 10</span>
-                <span class="score">Your Score: 0 / 1 correct</span>
-            </div>
-            <fieldset>
-                <legend><h2>${DATA.question}</h2></legend>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        ${DATA.answers[0]}
-                    </label>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        ${DATA.answers[1]}
-                    </label>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        ${DATA.answers[2]}
-                    </label>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        ${DATA.answers[3]}
-                    </label>
-                <button class="button submit-button">Submit</button>
-            </fieldset>
-        </form>
+    <form id="quiz-question-page" class="quiz-window col-8">
+        <div class="progress">
+            <span class="quiz-progress">Question ${questionNumber} / 10</span>
+            <span class="score">Your Score: 0 / 1 correct</span>
+        </div>
+        <fieldset class="fieldsetClass">
+            <legend><h2>${DATA[questionNumber - 1].question}</h2></legend>
+                <label for="radio">
+                    <input type="radio" name="answer">
+                    <span>${DATA[questionNumber - 1].answers[0]}</span>
+                </label>
+                <label for="radio">
+                    <input type="radio" name="answer">
+                    <span>${DATA[questionNumber - 1].answers[1]}</span>
+                </label>
+                <label for="radio">
+                    <input type="radio" name="answer">
+                    <span>${DATA[questionNumber - 1].answers[2]}</span>
+                </label>
+                <label for="radio">
+                    <input type="radio" name="answer">
+                    <span>${DATA[questionNumber - 1].answers[3]}</span>
+                </label>
+            <button class="button submit-button">Submit</button>
+        </fieldset>
+    </form>
     `;
 }
 
-function renderQuiz() {
-    startButton();
-    renderQuestion();
+function renderNextQuestion(){
+    $('.quizBody').html(renderQuestion());
 }
 
-$(renderQuiz);
-
-// set question number
-
 // submit answer
+function submitAnswer() {
+    $('.quizBody').on('submit', '#quiz-question-page', function(event) {
+        event.preventDefault();
+        // console.log('hello');
+        let selectedAnswer = $('input[name="answer"]:checked').val();
+        console.log(selectedAnswer);
+        checkUserAnswer(selectedAnswer);
+    });
+}
 
 // see if correct/incorrect
-// calculate score so far
+function checkUserAnswer(argument) {
+    if (argument === DATA[questionNumber - 1].correct) {
+        renderCorrectTemplate();
+    } else {
+        renderIncorrectTemplate();
+    }
+}
 
-// render feedback template (correct/incorrect template)
+function renderCorrectTemplate() {
+    $('.quizBody').html(`
+    <section method="post" id="quiz-question-correct" class="quiz-window col-8">
+        <div class="progress">
+            <span class="quiz-progress">Question ${questionNumber} out of 10</span>
+            <span class="score">Your Score: ${userScore} out of ${questionNumber} correct</span>
+        </div>
+        <section class="feedback correct">
+            <h2>Correct!</h2>
+            <button class="button next-button">Next Question</button>
+        </section>
+    </section>
+    `);
+}
+
+function renderIncorrectTemplate() {
+    $('.quizBody').html(`
+    <section method="post" id="quiz-question-incorrect" class="quiz-window col-8">
+        <div class="progress">
+            <span class="quiz-progress">Question ${questionNumber} out of 10</span>
+            <span class="score">Your Score: ${userScore} out of ${questionNumber} correct</span>
+        </div>
+        <section class="feedback incorrect">
+            <h2>Incorrect!</h2>
+            <div class="correct-answer">
+                <p>The correct answer is: <b>${DATA[questionNumber - 1].correct}</b></p>
+            </div>
+            <button class="button next-button">Next Question</button>
+        </section>
+    </section>
+    `);
+}
+
 
 // render next question
-// increment question number
 
 // calculate final score
 
 // render results page (displaying final score)
 
 // reload the page to restart quiz
+
+function renderQuiz() {
+    startButton();
+    submitAnswer();
+}
+
+$(renderQuiz);

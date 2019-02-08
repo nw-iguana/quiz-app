@@ -18,75 +18,75 @@
             <h1>Shark Quiz</h1>
             <button class="button start-quiz">Start Quiz</button>
         </section>
-
+        
         <!-- Question Page Wireframe -->
         <form method="post" id="quiz-question-page" class="quiz-window col-8">
-            <div class="progress">
-                <span class="quiz-progress">Question 4 out of 10</span>
-                <span class="score">Your Score: 2 out of 4 correct</span>
-            </div>
-            <fieldset>
-                <legend><h2>What distinguishes sharks from all other fish?</h2></legend>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        Cartilaginous skeletons
-                    </label>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        They have more Instagram followers, on average
-                    </label>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        Longer lifespan
-                    </label>
-                    <label for="radio">
-                        <input type="radio" name="radio" id="radio">
-                        More gills
-                    </label>
-                <button class="button submit-button">Submit</button>
-            </fieldset>
-        </form>
-
-        <!-- Results - Correct -->
-        <section method="post" id="quiz-question-correct" class="quiz-window col-8">
-            <div class="progress">
-                <span class="quiz-progress">Question 4 out of 10</span>
-                <span class="score">Your Score: 3 out of 4 correct</span>
-            </div>
-            <section class="feedback correct">
-                <h2>Correct!</h2>
-                <button class="button next-button">Next Question</button>
-            </section>
-        </section>
-
-        <!-- Results - Incorrect -->
-        <section method="post" id="quiz-question-incorrect" class="quiz-window col-8">
-            <div class="progress">
-                <span class="quiz-progress">Question 4 out of 10</span>
-                <span class="score">Your Score: 3 out of 4 correct</span>
-            </div>
-            <section class="feedback incorrect">
-                <h2>Incorrect!</h2>
-                <div class="correct-answer">
-                    <p>The correct answer is: <b>_______________</b></p>
+                <div class="progress">
+                    <span class="quiz-progress">Question 4 out of 10</span>
+                    <span class="score">Your Score: 2 out of 4 correct</span>
                 </div>
-                <button class="button next-button">Next Question</button>
-            </section>
-        </section>
-
-        <!-- Results - End of Quiz -->
-        <section method="post" id="quiz-end" class="quiz-window col-8">
-            <section class="feedback">
-                <h2>End of Quiz!</h2>
-                <div class="results-page">
-                    <p>Your score is: <b>________</b></p>
-                    <h3 class="quiz-percentage">38%</h3>
+                <fieldset>
+                    <legend><h2>What distinguishes sharks from all other fish?</h2></legend>
+                        <label for="radio">
+                            <input type="radio" name="radio" id="radio">
+                            <span>Cartilaginous skeletons</span>
+                        </label>
+                        <label for="radio">
+                            <input type="radio" name="radio" id="radio">
+                            <span>They have more Instagram followers, on average</span>
+                        </label>
+                        <label for="radio">
+                            <input type="radio" name="radio" id="radio">
+                            <span>Longer lifespan</span>
+                        </label>
+                        <label for="radio">
+                            <input type="radio" name="radio" id="radio">
+                            <span>More gills</span>
+                        </label>
+                    <button class="button submit-button">Submit</button>
+                </fieldset>
+            </form>
+    
+            <!-- Results - Correct -->
+            <section method="post" id="quiz-question-correct" class="quiz-window col-8">
+                <div class="progress">
+                    <span class="quiz-progress">Question 4 out of 10</span>
+                    <span class="score">Your Score: 3 out of 4 correct</span>
                 </div>
-                <button class="button restart-quiz">Restart Quiz</button>
+                <section class="feedback correct">
+                    <h2>Correct!</h2>
+                    <button class="button next-button">Next Question</button>
+                </section>
             </section>
-        </section>
-        
+    
+            <!-- Results - Incorrect -->
+            <section method="post" id="quiz-question-incorrect" class="quiz-window col-8">
+                <div class="progress">
+                    <span class="quiz-progress">Question 4 out of 10</span>
+                    <span class="score">Your Score: 3 out of 4 correct</span>
+                </div>
+                <section class="feedback incorrect">
+                    <h2>Incorrect!</h2>
+                    <div class="correct-answer">
+                        <p>The correct answer is: <b>_______________</b></p>
+                    </div>
+                    <button class="button next-button">Next Question</button>
+                </section>
+            </section>
+    
+            <!-- Results - End of Quiz -->
+            <section method="post" id="quiz-end" class="quiz-window col-8">
+                <section class="feedback">
+                    <h2>End of Quiz!</h2>
+                    <div class="results-page">
+                        <p>Your score is: <b>________</b></p>
+                        <h3 class="quiz-percentage">38%</h3>
+                    </div>
+                    <button class="button restart-quiz">Restart Quiz</button>
+                </section>
+            </section>
     </main>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- <script src="datastore.js"></script> -->
