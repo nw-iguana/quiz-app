@@ -56,10 +56,6 @@ main {
     outline: 4px solid #cccccc;
 }
 
-fieldset {
-    border: none;
-}
-
 label {
     display: block;
 }
