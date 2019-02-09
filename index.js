@@ -113,7 +113,7 @@ const DATA = [
     }
 ];
 
-let questionNumber = 1;
+let questionNumber = 0;
 let userScore = 0;
 
 // change question number
@@ -127,7 +127,7 @@ function updateScore() {
 }
 
 // start quiz and render question template
-function startButton() {
+function handleStartButton() {
     $('.quiz-window').on('click', '.start-quiz', function() {
         event.preventDefault();
         renderNextQuestion();
@@ -139,8 +139,8 @@ function renderQuestion() {
     return `
     <form id="quiz-question-page" class="quiz-window col-8">
         <div class="progress">
-            <span class="quiz-progress">Question ${questionNumber} / 10</span>
-            <span class="score">Your Score: 0 / 1 correct</span>
+            <span class="quiz-progress">Question ${questionNumber} / ${DATA.length}</span>
+            <span class="score">Your Score: ${userScore} / ${questionNumber} correct</span>
         </div>
         <fieldset class="fieldsetClass">
             <legend><h2>${DATA[questionNumber - 1].question}</h2></legend>
@@ -172,11 +172,16 @@ function renderQuestion() {
 
 // render the question
 function renderNextQuestion(){
+    if (questionNumber === 10) {
+        renderResultsPage();
+    } 
+    changeQuestionNumber();
     $('.quizBody').html(renderQuestion());
+    // console.log(questionNumber);
 }
 
 // submit answer
-function submitAnswer(answerChoice) {
+function handleSubmitAnswer(answerChoice) {
     $('.quizBody').on('submit', '#quiz-question-page', function(event) {
         event.preventDefault();
         checkUserAnswer(answerChoice);
@@ -187,8 +192,8 @@ function submitAnswer(answerChoice) {
 function checkUserAnswer() {
     let correctAnswer = DATA[questionNumber - 1].correct;
     let selectedAnswer = $('input[type="radio"]:checked').siblings('span').text();
-
     if (selectedAnswer === correctAnswer) {
+        updateScore();
         renderCorrectTemplate();
     } else {
         renderIncorrectTemplate();
@@ -200,7 +205,7 @@ function renderCorrectTemplate() {
     $('.quizBody').html(`
     <section method="post" id="quiz-question-correct" class="quiz-window col-8">
         <div class="progress">
-            <span class="quiz-progress">Question ${questionNumber} out of 10</span>
+            <span class="quiz-progress">Question ${questionNumber} out of ${DATA.length}</span>
             <span class="score">Your Score: ${userScore} out of ${questionNumber} correct</span>
         </div>
         <section class="feedback correct">
@@ -216,7 +221,7 @@ function renderIncorrectTemplate() {
     $('.quizBody').html(`
     <section method="post" id="quiz-question-incorrect" class="quiz-window col-8">
         <div class="progress">
-            <span class="quiz-progress">Question ${questionNumber} out of 10</span>
+            <span class="quiz-progress">Question ${questionNumber} out of ${DATA.length}</span>
             <span class="score">Your Score: ${userScore} out of ${questionNumber} correct</span>
         </div>
         <section class="feedback incorrect">
@@ -230,22 +235,45 @@ function renderIncorrectTemplate() {
     `);
 }
 
-
 // render next question
-
+function handleNextButton() {
+    $('.quizBody').on('click', '.next-button', function(event) {
+        // changeQuestionNumber();
+        renderNextQuestion();
+    });
+}
 
 // calculate final score
 
 
 // render results page (displaying final score)
-
+function renderResultsPage() {
+    return `
+    <section method="post" id="quiz-end" class="quiz-window col-8">
+        <section class="feedback">
+            <h2>End of Quiz!</h2>
+            <div class="results-page">
+                <p>Your score is: <b>${userScore}</b></p>
+                <h3 class="quiz-percentage">38%</h3>
+            </div>
+            <button class="button restart-quiz">Restart Quiz</button>
+        </section>
+    </section>
+    `;
+}
 
 // reload the page to restart quiz
-
+function handleQuizRestart() {
+    $('.quizBody').on('click', '.restart-quiz', function(event) {
+        location.reload();
+    });
+}
 
 function renderQuiz() {
-    startButton();
-    submitAnswer();
+    handleStartButton();
+    handleSubmitAnswer();
+    handleNextButton();
+    handleQuizRestart();
 }
 
 $(renderQuiz);
