@@ -126,7 +126,7 @@ function updateScore() {
     userScore++;
 }
 
-// render quiz - question template
+// start quiz and render question template
 function startButton() {
     $('.quiz-window').on('click', '.start-quiz', function() {
         event.preventDefault();
@@ -134,6 +134,7 @@ function startButton() {
     });
 }
 
+// renders question template
 function renderQuestion() {
     return `
     <form id="quiz-question-page" class="quiz-window col-8">
@@ -146,18 +147,22 @@ function renderQuestion() {
                 <label for="radio">
                     <input type="radio" name="answer">
                     <span>${DATA[questionNumber - 1].answers[0]}</span>
+                    </input>
                 </label>
                 <label for="radio">
                     <input type="radio" name="answer">
                     <span>${DATA[questionNumber - 1].answers[1]}</span>
+                    </input>
                 </label>
                 <label for="radio">
                     <input type="radio" name="answer">
                     <span>${DATA[questionNumber - 1].answers[2]}</span>
+                    </input>
                 </label>
                 <label for="radio">
                     <input type="radio" name="answer">
                     <span>${DATA[questionNumber - 1].answers[3]}</span>
+                    </input>
                 </label>
             <button class="button submit-button">Submit</button>
         </fieldset>
@@ -165,6 +170,7 @@ function renderQuestion() {
     `;
 }
 
+// render the question
 function renderNextQuestion(){
     $('.quizBody').html(renderQuestion());
 }
@@ -173,8 +179,7 @@ function renderNextQuestion(){
 function submitAnswer() {
     $('.quizBody').on('submit', '#quiz-question-page', function(event) {
         event.preventDefault();
-        // console.log('hello');
-        let selectedAnswer = $('input[name="answer"]:checked').val();
+        let selectedAnswer = $('input:checked').val();
         console.log(selectedAnswer);
         checkUserAnswer(selectedAnswer);
     });
@@ -182,13 +187,15 @@ function submitAnswer() {
 
 // see if correct/incorrect
 function checkUserAnswer(argument) {
-    if (argument === DATA[questionNumber - 1].correct) {
+    let correctAnswer = DATA[questionNumber - 1].correct;
+    if (argument === correctAnswer) {
         renderCorrectTemplate();
     } else {
         renderIncorrectTemplate();
     }
 }
 
+// render template for if answer is correct
 function renderCorrectTemplate() {
     $('.quizBody').html(`
     <section method="post" id="quiz-question-correct" class="quiz-window col-8">
@@ -204,6 +211,7 @@ function renderCorrectTemplate() {
     `);
 }
 
+// render template for if answer is incorrect
 function renderIncorrectTemplate() {
     $('.quizBody').html(`
     <section method="post" id="quiz-question-incorrect" class="quiz-window col-8">
@@ -225,11 +233,15 @@ function renderIncorrectTemplate() {
 
 // render next question
 
+
 // calculate final score
+
 
 // render results page (displaying final score)
 
+
 // reload the page to restart quiz
+
 
 function renderQuiz() {
     startButton();
