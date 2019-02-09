@@ -1,0 +1,22 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "quiz-app",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nw-iguana/quiz-app.git"
+  },
+  "author": "Charlotte and Alon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nw-iguana/quiz-app/issues"
+  },
+  "homepage": "https://github.com/nw-iguana/quiz-app#readme",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
