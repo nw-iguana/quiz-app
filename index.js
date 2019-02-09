@@ -144,26 +144,26 @@ function renderQuestion() {
         </div>
         <fieldset class="fieldsetClass">
             <legend><h2>${DATA[questionNumber - 1].question}</h2></legend>
-                <label for="radio">
-                    <input type="radio" name="answer">
-                    <span>${DATA[questionNumber - 1].answers[0]}</span>
-                    </input>
-                </label>
-                <label for="radio">
-                    <input type="radio" name="answer">
-                    <span>${DATA[questionNumber - 1].answers[1]}</span>
-                    </input>
-                </label>
-                <label for="radio">
-                    <input type="radio" name="answer">
-                    <span>${DATA[questionNumber - 1].answers[2]}</span>
-                    </input>
-                </label>
-                <label for="radio">
-                    <input type="radio" name="answer">
-                    <span>${DATA[questionNumber - 1].answers[3]}</span>
-                    </input>
-                </label>
+            <label for="radio">
+                <input type="radio" name="answer">
+                <span class="answer-option">${DATA[questionNumber - 1].answers[0]}</span>
+                </input>
+            </label>
+            <label for="radio">
+                <input type="radio" name="answer">
+                <span class="answer-option">${DATA[questionNumber - 1].answers[1]}</span>
+                </input>
+            </label>
+            <label for="radio">
+                <input type="radio" name="answer">
+                <span class="answer-option">${DATA[questionNumber - 1].answers[2]}</span>
+                </input>
+            </label>
+            <label for="radio">
+                <input type="radio" name="answer">
+                <span class="answer-option">${DATA[questionNumber - 1].answers[3]}</span>
+                </input>
+            </label>
             <button class="button submit-button">Submit</button>
         </fieldset>
     </form>
@@ -176,19 +176,19 @@ function renderNextQuestion(){
 }
 
 // submit answer
-function submitAnswer() {
+function submitAnswer(answerChoice) {
     $('.quizBody').on('submit', '#quiz-question-page', function(event) {
         event.preventDefault();
-        let selectedAnswer = $('input:checked').val();
-        console.log(selectedAnswer);
-        checkUserAnswer(selectedAnswer);
+        checkUserAnswer(answerChoice);
     });
 }
 
 // see if correct/incorrect
-function checkUserAnswer(argument) {
+function checkUserAnswer() {
     let correctAnswer = DATA[questionNumber - 1].correct;
-    if (argument === correctAnswer) {
+    let selectedAnswer = $('input[type="radio"]:checked').siblings('span').text();
+
+    if (selectedAnswer === correctAnswer) {
         renderCorrectTemplate();
     } else {
         renderIncorrectTemplate();
