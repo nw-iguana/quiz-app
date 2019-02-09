@@ -14,75 +14,79 @@
     
     <main class="quizBody">
         <!-- Start Page Wireframe -->
-        <section class="quiz-window col-8">
-            <h1>Shark Quiz</h1>
-            <button class="button start-quiz">Start Quiz</button>
+        <section class="js-quiz-window col-8">
+            <header><h1>Shark Quiz</h1></header>
+            <button class="button js-start-quiz">Start Quiz</button>
         </section>
         
         <!-- Question Page Wireframe -->
-        <form method="post" id="quiz-question-page" class="quiz-window col-8">
-                <div class="progress">
-                    <span class="quiz-progress">Question 4 out of 10</span>
-                    <span class="score">Your Score: 2 out of 4 correct</span>
-                </div>
-                <fieldset>
-                    <legend><h2>What distinguishes sharks from all other fish?</h2></legend>
-                        <label for="radio">
-                            <input type="radio" name="radio" id="radio">
-                            <span>Cartilaginous skeletons</span>
-                        </label>
-                        <label for="radio">
-                            <input type="radio" name="radio" id="radio">
-                            <span>They have more Instagram followers, on average</span>
-                        </label>
-                        <label for="radio">
-                            <input type="radio" name="radio" id="radio">
-                            <span>Longer lifespan</span>
-                        </label>
-                        <label for="radio">
-                            <input type="radio" name="radio" id="radio">
-                            <span>More gills</span>
-                        </label>
-                    <button class="button submit-button">Submit</button>
-                </fieldset>
-            </form>
+        <form id="quiz-question-page" class="js-quiz-window col-8">
+            <div class="progress">
+                <span class="js-quiz-progress">Question 4 / 10</span>
+                <span class="js-quiz-score">Your Score: 4 / 4 correct</span>
+            </div>
+            <fieldset class="fieldsetClass">
+                <legend><h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe consectetur iusto ad minus odio laboriosam eum optio rerum. Vero?</h2></legend>
+                <label for="radio">
+                    <input type="radio" name="answer" required>
+                        <span class="js-answer-option">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    </input>
+                </label>
+                <label for="radio">
+                    <input type="radio" name="answer" required>
+                        <span class="js-answer-option">Lorem, ipsum dolor.</span>
+                    </input>
+                </label>
+                <label for="radio">
+                    <input type="radio" name="answer" required>
+                        <span class="js-answer-option">Lorem ipsum dolor sit amet consectetur.</span>
+                    </input>
+                </label>
+                <label for="radio">
+                    <input type="radio" name="answer" required>
+                        <span class="js-answer-option">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, fuga!</span>
+                    </input>
+                </label>
+                <button class="button js-submit-button">Submit</button>
+            </fieldset>
+        </form>
     
             <!-- Results - Correct -->
-            <section method="post" id="quiz-question-correct" class="quiz-window col-8">
-                <div class="progress">
-                    <span class="quiz-progress">Question 4 out of 10</span>
-                    <span class="score">Your Score: 3 out of 4 correct</span>
+            <section method="post" id="quiz-question-correct" class="js-quiz-window col-8">
+                <div class="js-progress">
+                    <span class="js-quiz-progress">Question 5 / 10</span>
+                    <span class="js-quiz-score">Your Score: 3 / 5</span>
                 </div>
-                <section class="feedback correct">
+                <section class="js-feedback correct">
                     <h2>Correct!</h2>
-                    <button class="button next-button">Next Question</button>
+                    <button class="button js-next-button">Next Question</button>
                 </section>
             </section>
     
             <!-- Results - Incorrect -->
-            <section method="post" id="quiz-question-incorrect" class="quiz-window col-8">
-                <div class="progress">
-                    <span class="quiz-progress">Question 4 out of 10</span>
-                    <span class="score">Your Score: 3 out of 4 correct</span>
+            <section method="post" id="quiz-question-incorrect" class="js-quiz-window col-8">
+                <div class="js-progress">
+                    <span class="js-quiz-progress">Question 4 / 29</span>
+                    <span class="js-quiz-score">Your Score: 8 / 24</span>
                 </div>
-                <section class="feedback incorrect">
+                <section class="js-feedback incorrect">
                     <h2>Incorrect!</h2>
-                    <div class="correct-answer">
-                        <p>The correct answer is: <b>_______________</b></p>
+                    <div class="js-correct-answer">
+                        <p>The correct answer is: <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sapiente!</b></p>
                     </div>
-                    <button class="button next-button">Next Question</button>
+                    <button class="button js-next-button">Next Question</button>
                 </section>
             </section>
     
             <!-- Results - End of Quiz -->
-            <section method="post" id="quiz-end" class="quiz-window col-8">
-                <section class="feedback">
+            <section method="post" id="quiz-end" class="js-quiz-window col-8">
+                <section class="js-feedback">
                     <h2>End of Quiz!</h2>
-                    <div class="results-page">
-                        <p>Your score is: <b>________</b></p>
-                        <h3 class="quiz-percentage">38%</h3>
+                    <div class="js-results-page">
+                        <p>Your score is: <b>4</b></p>
+                        <h3 class="js-quiz-percentage">50%</h3>
                     </div>
-                    <button class="button restart-quiz">Restart Quiz</button>
+                    <button class="button js-restart-quiz">Restart Quiz</button>
                 </section>
             </section>
     </main>
