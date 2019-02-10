@@ -10,6 +10,11 @@ $accent-4: #b1b7d9;
 $font-main: Lato, sans-serif;
 $font-header: Alfa Slab One, serif;
 
+// MIXINS
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+
 // STYLING
 * {
   box-sizing: border-box;
@@ -44,6 +49,11 @@ body {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 1px 1px $color-light;
+}
+
+.shark-buddy-start {
+  width: 200px;
+  margin: 0 auto;
 }
 
 .shark-buddy {
@@ -90,13 +100,13 @@ button {
 
   border-radius: 10px;
   box-shadow: 1px 1px $color-light;
-  // @include easeOut(0.2s);
-}
+  @include easeOut;
 
-button:hover, button:focus {
-  background-color: $color-light;
-  box-shadow: 1px 1px $accent-1;
-  color: $accent-1;
+  &:hover, :focus {
+    background-color: $color-light;
+    box-shadow: 1px 1px $accent-1;
+    color: $accent-1;
+  }
 }
 
 fieldset {
@@ -109,6 +119,7 @@ label {
   margin-bottom: 15px;
   background-color: $accent-2;
   border-radius: 10px;
+  @include easeOut;
 
   &:hover, :focus {
     background-color: $accent-1;
@@ -146,6 +157,8 @@ label {
   img {
     width: 400px;
     display: block;
+    margin-top: 50px;
+    border-radius: 15px;
   }
 }
 
@@ -160,25 +173,58 @@ label {
 }
 
 .js-results-page {
-  // display: flex;
-  // justify-content: space-around;
   font-size: 1.6rem;
 }
 
 .js-quiz-percentage {
-  // display: flex;
-  // justify-content: space-around;
-  font-size: 1.6rem;
-
   font-family: $font-header;
   color: $accent-2;
   text-shadow: 1px 1px $accent-4;
   font-weight: normal;
   letter-spacing: 2px;
   font-size: 5rem;
+  margin-bottom: 200px;
 }
 
-// MIXINS
-@mixin easeOut($property) {
-  transition: all $property ease-out;
+// MEDIA QUERIES
+@media screen and (max-width: 728px) {
+  .col-9 {
+    width: 100%;
+  }
+  header h1 {
+    font-size: 3rem;
+    margin-top: 80px;
+  }
+  .shark-buddy img {
+    width: 150px;
+  }
+  .shark-buddy-start img {
+    width: 200px;
+  }
+  .js-progress {
+    font-size: 0.7rem;
+  }
+  .js-feedback {
+    img {
+      max-width: 200px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .js-quiz-window header {
+    margin-top: 0px;
+  }
+  .js-quiz-window header h1 {
+    font-size: 2rem;
+  }
+  .quiz-question {
+    font-size: 1.2rem;
+  }
+  label {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
 }

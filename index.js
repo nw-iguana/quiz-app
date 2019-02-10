@@ -12,94 +12,94 @@ const DATA = [
         ],
         correct: `Whale Shark`
     },
-    // {
-    //     number: 2,
-    //     question: `What is the terminology for baby sharks?`,
-    //     answers: [
-    //         `Breakfast`,
-    //         `Hatchlings`,
-    //         `Calves`,
-    //         `Pups`
-    //     ],
-    //     correct: `Pups`
-    // },
-    // {
-    //     number: 3,
-    //     question: `Which species of shark was recently discovered to be able to eat and digest seagrass?`,
-    //     answers: [
-    //         `Zebra Shark`,
-    //         `Bonnethead Shark`,
-    //         `Vegan Shark`,
-    //         `Basking Shark`
-    //     ],
-    //     correct: `Bonnethead Shark`
-    // },
-    // {
-    //     number: 4,
-    //     question: `What distinguishes sharks from all other fish?`,
-    //     answers: [
-    //         `Cartilaginous skeletons`,
-    //         `They have more Instagram followers, on average`,
-    //         `Longer lifespan`,
-    //         `More gills`
-    //     ],
-    //     correct: `Cartilaginous skeletons`
-    // },
-    // {
-    //     number: 5,
-    //     question: `What does the hammerhead shark use its hammer-shaped head for?`,
-    //     answers: [
-    //         `Echolocation`,
-    //         `Trapping prey`,
-    //         `Mating rituals`,
-    //         `Underwater carpentry`
-    //     ],
-    //     correct: `Trapping prey`
-    // },
-    // {
-    //     number: 6,
-    //     question: `How many species of shark have been discovered?`,
-    //     answers: [
-    //         `None. Sharks are mythical.`,
-    //         `0-300`,
-    //         `300-600`,
-    //         `Over 600`
-    //     ],
-    //     correct: `300-600`
-    // },
-    // {
-    //     number: 7,
-    //     question: `What is the longest measured lifespan of the Greenland Shark?`,
-    //     answers: [
-    //         `124 years`,
-    //         `372 years`,
-    //         `512 years`,
-    //         `Over 9,000`
-    //     ],
-    //     correct: `512 years`
-    // },
-    // {
-    //     number: 8,
-    //     question: `Besides the aptly-named River Shark, which other shark species can survive outside of saltwater?`,
-    //     answers: [
-    //         `Bull Shark`,
-    //         `Lemon Shark`,
-    //         `Loan Shark`,
-    //         `Goblin Shark`
-    //     ],
-    //     correct: `Bull Shark`
-    // },
-    // {
-    //     number: 9,
-    //     question: `Which species of shark has the largest teeth in proportion to its body size?`,
-    //     answers: [
-    //         `Great White Shark`,
-    //         `Blacktip Reef Shark`,
-    //         `Left Shark`,
-    //         `Cookiecutter Shark`
-    //     ],
-    //     correct: `Cookiecutter Shark`
-    // },
+    {
+        number: 2,
+        question: `What is the terminology for baby sharks?`,
+        answers: [
+            `Breakfast`,
+            `Hatchlings`,
+            `Calves`,
+            `Pups`
+        ],
+        correct: `Pups`
+    },
+    {
+        number: 3,
+        question: `Which species of shark was recently discovered to be able to eat and digest seagrass?`,
+        answers: [
+            `Zebra Shark`,
+            `Bonnethead Shark`,
+            `Vegan Shark`,
+            `Basking Shark`
+        ],
+        correct: `Bonnethead Shark`
+    },
+    {
+        number: 4,
+        question: `What distinguishes sharks from all other fish?`,
+        answers: [
+            `Cartilaginous skeletons`,
+            `They have more Instagram followers, on average`,
+            `Longer lifespan`,
+            `More gills`
+        ],
+        correct: `Cartilaginous skeletons`
+    },
+    {
+        number: 5,
+        question: `What does the hammerhead shark use its hammer-shaped head for?`,
+        answers: [
+            `Echolocation`,
+            `Trapping prey`,
+            `Mating rituals`,
+            `Underwater carpentry`
+        ],
+        correct: `Trapping prey`
+    },
+    {
+        number: 6,
+        question: `How many species of shark have been discovered?`,
+        answers: [
+            `None. Sharks are mythical.`,
+            `0-300`,
+            `300-600`,
+            `Over 600`
+        ],
+        correct: `300-600`
+    },
+    {
+        number: 7,
+        question: `What is the longest measured lifespan of the Greenland Shark?`,
+        answers: [
+            `124 years`,
+            `372 years`,
+            `512 years`,
+            `Over 9,000`
+        ],
+        correct: `512 years`
+    },
+    {
+        number: 8,
+        question: `Besides the aptly-named River Shark, which other shark species can survive outside of saltwater?`,
+        answers: [
+            `Bull Shark`,
+            `Lemon Shark`,
+            `Loan Shark`,
+            `Goblin Shark`
+        ],
+        correct: `Bull Shark`
+    },
+    {
+        number: 9,
+        question: `Which species of shark has the largest teeth in proportion to its body size?`,
+        answers: [
+            `Great White Shark`,
+            `Blacktip Reef Shark`,
+            `Left Shark`,
+            `Cookiecutter Shark`
+        ],
+        correct: `Cookiecutter Shark`
+    },
     {
         number: 10,
         question: `The Ampullae of Lorenzini are special sensory cells on a shark's nose that detect:`,
@@ -116,33 +116,12 @@ const DATA = [
 let questionNumber = 0;
 let userScore = 0;
 
-// change question number
-function changeQuestionNumber() {
-    questionNumber++;
-}
-
-// calculate score so far
-function updateScore() {
-    userScore++;
-}
-
-// start quiz and render question template
-function handleStartButton() {
-    $('.js-quiz-window').on('click', '.js-start-quiz', function() {
-        event.preventDefault();
-        renderNextQuestion();
-    });
-}
-
-// render the question
 function renderNextQuestion(){
     changeQuestionNumber();
     $('.quizBody').html(renderQuestion());
 }
 
-// question template
 function renderQuestion() {
-    // console.log('current question: ', DATA[questionNumber - 1]);
     return `
     <form id="quiz-question-page" class="js-quiz-window col-9">
         <div class="js-progress">
@@ -177,15 +156,6 @@ function renderQuestion() {
     `;
 }
 
-// submit answer
-function handleSubmitAnswer(answerChoice) {
-    $('.quizBody').on('submit', '#quiz-question-page', function(event) {
-        event.preventDefault();
-        checkUserAnswer(answerChoice);
-    });
-}
-
-// see if correct/incorrect
 function checkUserAnswer() {
     let correctAnswer = DATA[questionNumber - 1].correct;
     let selectedAnswer = $('input[type="radio"]:checked').siblings('span').text();
@@ -197,7 +167,6 @@ function checkUserAnswer() {
     }
 }
 
-// render template for if answer is correct
 function renderCorrectTemplate() {
     $('.quizBody').html(`
     <section class="js-quiz-window col-9">
@@ -220,7 +189,6 @@ function renderCorrectTemplate() {
     `);
 }
 
-// render template for if answer is incorrect
 function renderIncorrectTemplate() {
     $('.quizBody').html(`
     <section class="js-quiz-window col-9">
@@ -244,25 +212,6 @@ function renderIncorrectTemplate() {
     `);
 }
 
-// render next question
-function handleNextButton() {
-    $('.quizBody').on('click', '.js-next-button', function(event) {
-        event.preventDefault();
-        if (questionNumber === DATA.length) {
-            renderResultsPage();
-        } else {
-            renderNextQuestion();
-        }
-    });
-}
-
-// calculate final score
-function handleFinalPercentage() {
-    let finalPercentage = Math.floor((userScore / DATA.length) * 100);
-    return finalPercentage;
-}
-
-// render results page (displaying final score)
 function renderResultsPage() {
     let finalScore = handleFinalPercentage();
     let resultsTemplate = `
@@ -284,18 +233,62 @@ function renderResultsPage() {
     $('.quizBody').html(resultsTemplate);
 }
 
-// reload the page to restart quiz
-function handleQuizRestart() {
+
+// BUTTONS
+function handleStartButton() {
+    $('.js-quiz-window').on('click', '.js-start-quiz', function() {
+        event.preventDefault();
+        renderNextQuestion();
+    });
+}
+
+function handleSubmitButton(answerChoice) {
+    $('.quizBody').on('submit', '#quiz-question-page', function(event) {
+        event.preventDefault();
+        checkUserAnswer(answerChoice);
+    });
+}
+
+function handleNextButton() {
+    $('.quizBody').on('click', '.js-next-button', function(event) {
+        event.preventDefault();
+        if (questionNumber === DATA.length) {
+            renderResultsPage();
+        } else {
+            renderNextQuestion();
+        }
+    });
+}
+
+function handleRestartButton() {
     $('.quizBody').on('click', '.js-restart-quiz', function(event) {
         location.reload();
     });
 }
 
+
+// ITERATORS
+function changeQuestionNumber() {
+    questionNumber++;
+}
+
+function updateScore() {
+    userScore++;
+}
+
+function handleFinalPercentage() {
+    let finalPercentage = Math.floor((userScore / DATA.length) * 100);
+    return finalPercentage;
+}
+
+
+
+
 function renderQuiz() {
     handleStartButton();
-    handleSubmitAnswer();
+    handleSubmitButton();
     handleNextButton();
-    handleQuizRestart();
+    handleRestartButton();
 }
 
 $(renderQuiz);

@@ -50,6 +50,10 @@ body {
   border-radius: 15px;
   box-shadow: 1px 1px #fafafa; }
 
+.shark-buddy-start {
+  width: 200px;
+  margin: 0 auto; }
+
 .shark-buddy {
   position: fixed;
   bottom: 0;
@@ -88,12 +92,12 @@ button {
   font-weight: bold;
   letter-spacing: 1px;
   border-radius: 10px;
-  box-shadow: 1px 1px #fafafa; }
-
-button:hover, button:focus {
-  background-color: #fafafa;
-  box-shadow: 1px 1px #537da7;
-  color: #537da7; }
+  box-shadow: 1px 1px #fafafa;
+  transition: all 0.5s ease-out; }
+  button:hover, button :focus {
+    background-color: #fafafa;
+    box-shadow: 1px 1px #537da7;
+    color: #537da7; }
 
 fieldset {
   border: none; }
@@ -103,7 +107,8 @@ label {
   padding: 15px;
   margin-bottom: 15px;
   background-color: #245274;
-  border-radius: 10px; }
+  border-radius: 10px;
+  transition: all 0.5s ease-out; }
   label:hover, label :focus {
     background-color: #537da7;
     color: #fafafa;
@@ -131,7 +136,9 @@ label {
     font-size: 2.5rem; }
   .js-feedback img {
     width: 400px;
-    display: block; }
+    display: block;
+    margin-top: 50px;
+    border-radius: 15px; }
 
 .end-of-quiz {
   margin-top: 150px;
@@ -145,10 +152,38 @@ label {
   font-size: 1.6rem; }
 
 .js-quiz-percentage {
-  font-size: 1.6rem;
   font-family: Alfa Slab One, serif;
   color: #245274;
   text-shadow: 1px 1px #b1b7d9;
   font-weight: normal;
   letter-spacing: 2px;
-  font-size: 5rem; }
+  font-size: 5rem;
+  margin-bottom: 200px; }
+
+@media screen and (max-width: 728px) {
+  .col-9 {
+    width: 100%; }
+  header h1 {
+    font-size: 3rem;
+    margin-top: 80px; }
+  .shark-buddy img {
+    width: 150px; }
+  .shark-buddy-start img {
+    width: 200px; }
+  .js-progress {
+    font-size: 0.7rem; }
+  .js-feedback img {
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 100px; }
+  .js-feedback h2 {
+    font-size: 2rem; }
+  .js-quiz-window header {
+    margin-top: 0px; }
+  .js-quiz-window header h1 {
+    font-size: 2rem; }
+  .quiz-question {
+    font-size: 1.2rem; }
+  label {
+    padding: 10px;
+    margin-bottom: 10px; } }
