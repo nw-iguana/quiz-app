@@ -7,88 +7,21 @@
     <title>Shark Quiz</title>
     <meta name="description" content="Test your knowledge of sharks with this quiz!">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Alfa+Slab+One" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     
     <main class="quizBody">
         <!-- Start Page Wireframe -->
-        <section class="js-quiz-window col-8">
+        <section class="js-quiz-window col-9">
             <header><h1>Shark Quiz</h1></header>
             <button class="button js-start-quiz">Start Quiz</button>
         </section>
-        
-        <!-- Question Page Wireframe -->
-        <form id="quiz-question-page" class="js-quiz-window col-8">
-            <div class="progress">
-                <span class="js-quiz-progress">Question 4 / 10</span>
-                <span class="js-quiz-score">Your Score: 4 / 4 correct</span>
-            </div>
-            <fieldset class="fieldsetClass">
-                <legend><h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe consectetur iusto ad minus odio laboriosam eum optio rerum. Vero?</h2></legend>
-                <label for="radio">
-                    <input type="radio" name="answer" required>
-                        <span class="js-answer-option">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                    </input>
-                </label>
-                <label for="radio">
-                    <input type="radio" name="answer" required>
-                        <span class="js-answer-option">Lorem, ipsum dolor.</span>
-                    </input>
-                </label>
-                <label for="radio">
-                    <input type="radio" name="answer" required>
-                        <span class="js-answer-option">Lorem ipsum dolor sit amet consectetur.</span>
-                    </input>
-                </label>
-                <label for="radio">
-                    <input type="radio" name="answer" required>
-                        <span class="js-answer-option">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, fuga!</span>
-                    </input>
-                </label>
-                <button class="button js-submit-button">Submit</button>
-            </fieldset>
-        </form>
-    
-            <!-- Results - Correct -->
-            <section method="post" id="quiz-question-correct" class="js-quiz-window col-8">
-                <div class="js-progress">
-                    <span class="js-quiz-progress">Question 5 / 10</span>
-                    <span class="js-quiz-score">Your Score: 3 / 5</span>
-                </div>
-                <section class="js-feedback correct">
-                    <h2>Correct!</h2>
-                    <button class="button js-next-button">Next Question</button>
-                </section>
-            </section>
-    
-            <!-- Results - Incorrect -->
-            <section method="post" id="quiz-question-incorrect" class="js-quiz-window col-8">
-                <div class="js-progress">
-                    <span class="js-quiz-progress">Question 4 / 29</span>
-                    <span class="js-quiz-score">Your Score: 8 / 24</span>
-                </div>
-                <section class="js-feedback incorrect">
-                    <h2>Incorrect!</h2>
-                    <div class="js-correct-answer">
-                        <p>The correct answer is: <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sapiente!</b></p>
-                    </div>
-                    <button class="button js-next-button">Next Question</button>
-                </section>
-            </section>
-    
-            <!-- Results - End of Quiz -->
-            <section method="post" id="quiz-end" class="js-quiz-window col-8">
-                <section class="js-feedback">
-                    <h2>End of Quiz!</h2>
-                    <div class="js-results-page">
-                        <p>Your score is: <b>4</b></p>
-                        <h3 class="js-quiz-percentage">50%</h3>
-                    </div>
-                    <button class="button js-restart-quiz">Restart Quiz</button>
-                </section>
-            </section>
+
+        <section class="shark-buddy">
+            <img src="img/shark-buddy.png" alt="Henry The Shark">
+        </section>
     </main>
 
 

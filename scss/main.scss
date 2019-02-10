@@ -1,78 +1,55 @@
+@import 'grid';
+
+// SASS VARIABLES
+$color-dark: #001729;
+$color-light: #fafafa;
+$accent-1: #537da7;
+$accent-2: #245274;
+$accent-3: #18455a;
+$accent-4: #b1b7d9;
+$font-main: Lato, sans-serif;
+$font-header: Alfa Slab One, serif;
+
+// STYLING
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: Lato;
-  font-size: 16px;
+  font-family: $font-main;
 }
 
 body {
-  background-image: url(img/waterbg.JPG);
+  background-image: url('../img/waterbg.JPG');
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  line-height: 1.8rem;
 }
 
-/* CSS GRID! */
-
-.col-12 {
-  width: 100%;
-}
-
-.col-9 {
-  width: 75%;
-}
-
-.col-8 {
-  width: 66.7%;
-}
-
-.col-6 {
-  width: 50%;
-}
-
-.col-4 {
-  width: 33.3%;
-}
-
-.col-3 {
-  width: 25%;
-}
-
-.col-2 {
-  width: calc(100 / 6);
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-main {
+.quizBody {
   max-width: 1000px;
   padding: 20px;
   margin: 0 auto;
 }
 
 .js-quiz-window {
-  background-color: #001729;
-  color: #b1b7d9;
+  background-color: $color-dark;
+  color: $color-light;
   margin: 0 auto;
   position: relative;
-  height: 450px;
+  min-height: 600px;
+  height: auto;
   margin-bottom: 100px; /* purely for spacing out wireframes; this can be deleted later */
   padding: 20px;
-  /* outline: 4px solid #cccccc; */
+  border-radius: 15px;
+  box-shadow: 1px 1px $color-light;
 }
 
-fieldset { border: none; }
-
-label {
-  display: block;
-}
-
-.js-progress {
-  position: absolute;
+.shark-buddy {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 header {
@@ -82,6 +59,126 @@ header {
 }
 
 header h1 {
-  color: #fafafa;
-  font-size: 3rem;
+  font-family: $font-header;
+  color: $color-light;
+  text-shadow: 1px 1px $accent-4;
+  letter-spacing: 2px;
+  font-weight: normal;
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  margin: auto;
+
+  background-color: $accent-1;
+  box-shadow: 1px 1px $color-light;
+  color: $color-light;
+  width: 250px;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: $font-main;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  border-radius: 10px;
+  box-shadow: 1px 1px $color-light;
+  // @include easeOut(0.2s);
+}
+
+button:hover, button:focus {
+  background-color: $color-light;
+  box-shadow: 1px 1px $accent-1;
+  color: $accent-1;
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  display: block;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: $accent-2;
+  border-radius: 10px;
+
+  &:hover, :focus {
+    background-color: $accent-1;
+    color: $color-light;
+    cursor: pointer;
+  }
+}
+
+.js-progress {
+  display: flex;
+  justify-content: space-between;
+  
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.quiz-question {
+  font-weight: 100;
+}
+
+.js-feedback {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+
+  h2 {
+    font-family: $font-header;
+    letter-spacing: 2px;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+  }
+
+  img {
+    width: 400px;
+    display: block;
+  }
+}
+
+.end-of-quiz {
+  margin-top: 150px;
+
+  font-family: $font-header;
+  color: $accent-1;
+  font-weight: normal;
+  letter-spacing: 2px;
+  font-size: 4rem;
+}
+
+.js-results-page {
+  // display: flex;
+  // justify-content: space-around;
+  font-size: 1.6rem;
+}
+
+.js-quiz-percentage {
+  // display: flex;
+  // justify-content: space-around;
+  font-size: 1.6rem;
+
+  font-family: $font-header;
+  color: $accent-2;
+  text-shadow: 1px 1px $accent-4;
+  font-weight: normal;
+  letter-spacing: 2px;
+  font-size: 5rem;
+}
+
+// MIXINS
+@mixin easeOut($property) {
+  transition: all $property ease-out;
 }
